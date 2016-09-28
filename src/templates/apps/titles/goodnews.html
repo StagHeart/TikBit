@@ -1,0 +1,92 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %}TikbiT | Good News{{ block.super }}{% endblock %}
+
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+
+.jumbotron {
+	background-color:#768083;
+	color: #FFF;
+}
+p {
+    font-size: 125%;
+}
+
+{% endblock %}
+
+{% block upperjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+{%  endblock %}
+   
+{% block jumbotron %}
+
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class="jumbotron">
+ <div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+		<h1>Good News</h1>
+		<p>Lets make the day positive and follow the good news in the world!</p>
+		<p>
+		<a style="background-color: #3EA096; border-color: #000000;" class="btn btn-lg btn-primary" href="#location" role="button">Sign Up! &raquo;</a>
+		</p>
+		</div>
+		<div class='col-sm-6' >
+			<span class="fa-4x">
+              <i style='color:white;' class="fa fa-newspaper-o fa-4x "></i>
+            </span>
+
+ 		</div>
+		</div>
+	</div>
+ </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<span class="span9">
+	  <a name="location"></a>
+	  <div class="col-md-3 center">
+	  			
+				<p class='lead text-align-center'>{{ title }}</p>
+
+				<form method='POST' action=''>{% csrf_token %}
+	            {{ form|crispy }}
+
+	            <input name ="location" style="background-color: #3EA096; border-color: #000000;" class=' center-block btn btn-primary' type='submit' value='Sign Up' />
+
+	            </form> 
+	            
+	            <!-- Element to pop up -->
+	            <div id="element_to_pop_up">
+
+	                <div id="containerSignUp" style="width:380px; height:346px;"></div>
+	            </div>
+	            
+	            <br>
+	            <br>
+		</div>
+    </span>
+</div>
+<div>
+	<div>
+	          <h2>Good News</h2>
+	          <p>Everyone needs a good pick me up throughout the day to keep that smile going. This app will bring the latest postive, happy, and cute news to you the moment you open it! </p>
+	          
+	          
+	</div><!-- /.col-lg-4 -->
+	
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "js/pies/pieGoodNews.js" %}
+{% include "js/popup.js" %}
+{% endblock %}

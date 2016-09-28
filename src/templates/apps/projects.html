@@ -1,0 +1,135 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+<!-- project overview html -->
+
+{% block head_title %}TikbiT | Apps{{ block.super }}{% endblock %}
+
+
+{% block style %}
+.navbar-static-top {
+    margin-bottom: 0px !important;
+}
+
+.jumbotron {
+    background-color:#768083;
+    color: #FFF;
+}
+
+
+{% endblock %}
+
+{% block upperjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+{%  endblock %}
+   
+{% block jumbotron %}
+
+
+<div style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;"class="jumbotron">
+ <div class="container">
+    <div class="row">
+        
+        <div class='col-sm-6' >
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VjRhpGqjXLQ"></iframe>
+            </div>
+
+        </div>
+        <div class='col-sm-6'>
+        <h1>App Projects</h1>
+        <p>Below is the current app projects in development. If you would like to be notified when the App is finished and released please sign up for an Email notification!</p>
+        <p>
+        <a  style="background-color: #3EA096; border-color: #000000;" class=" center-block btn btn-lg btn-primary" href="{% url 'signup' %}" role="button">Sign Up! &raquo;</a>
+        </p>
+        </div>
+        </div>
+    </div>
+ </div>
+
+{% endblock %}
+
+{% block content %}
+     
+
+<div class="row">
+
+    <div class="center-block col-md-3 ">
+    
+        <p class='lead text-align-center'>{{ title }}</p>
+
+            <form method='POST' action=''>{% csrf_token %}
+            {{ form|crispy }}
+
+            <input  style="background-color: #3EA096; border-color: #000000;" class='center-block btn btn-primary' type='submit' value='Sign Up' />
+
+            </form> 
+            
+            <!-- Element to pop up -->
+            <div id="element_to_pop_up">
+
+
+                <div id="containerSignUp" style="width:380px; height:346px;"></div>
+            </div>
+            
+            <br>
+            <br>
+    </div>
+
+    <div class='col-md-2'>
+        <a class="center-block btn" href="{% url 'friends' %}">
+            <p class=' lead text-align-center'>Friends
+            <br/>
+                <span class=' fa-stack fa-lg fa-4x'>
+                    <i style='color: yellow;' class='fa fa-circle fa-stack-2x'></i>
+                    <i style='color:black;'class="fa fa-smile-o  fa-5x fa-stack-2x"></i>
+                </span>
+            </p>
+        </a>
+    </div>
+
+    <div class='col-md-2'>
+        <a class="center-block btn" href="{% url 'herbs' %}">
+            <p class='lead text-align-center'>Herbs <br/>
+                <span class="fa-stack fa-lg fa-4x">
+                    <i style='color:#54E654;' class="fa fa-leaf fa-stack-2x"></i>
+                      <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+
+                </span>
+            </p>
+        </a>
+    </div>
+
+    <div class='col-md-2'>
+        <a class=" center-block btn" href="{% url 'fitness' %}">
+            <p class='lead text-align-center'>Fitness <br/>
+                <span class="fa-stack fa-lg fa-4x">
+                    <i style='color: #E63434;' class="fa fa-heartbeat fa-stack-2x"></i>
+                      <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+
+                </span>
+            </p>
+        </a>
+    </div>
+
+    <div class='col-md-2'>
+        <a class=" center-block btn" href="{% url 'goodnews' %}">
+            <p class='lead text-align-center'>Good News <br/>
+                <span class="fa-stack fa-lg fa-4x">
+                    <i style='color:black;' class="fa fa-newspaper-o fa-stack-2x"></i>
+                      <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+
+                </span>
+            </p>
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "js/pies/pieSignUp.js" %}
+{% include "js/popup.js" %}
+{% endblock %}

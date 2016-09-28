@@ -1,0 +1,69 @@
+    {% load staticfiles %}
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+<style>
+{% block style %}
+.navbar-static-top {
+  margin-bottom: 0px !important;
+}
+
+.jumbotron {
+  background-color:#41B3D5;
+  color: #FFF;
+}
+
+
+
+{% endblock %}
+</style>
+
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <a class="btn" href="{% url 'games' %}">
+            <span class="fa-5x">
+              <i style='color: #3EA096;' class="fa fa-gamepad fa-3x faa-shake animated-hover"></i>
+            </span>
+          </a>
+          <h2>Game Projects</h2>
+          <p>Preview games that will hit your phone or computer later this year!</p>
+          <p><a class="btn btn-default" href="{% url 'games' %}" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          
+          <a class="btn" href="{% url 'projects' %}">
+            <span class="fa-5x">
+              <i style='color: #3EA096;' class="fa fa-mobile fa-3x faa-tada animated-hover"></i>
+            </span>
+          </a>
+            
+          <h2>App Projects</h2>
+          <p>Latest news on TikbiT's main Mobile and Web Applications! </p>
+          <p><a class="btn btn-default" href="{% url 'projects' %}" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          
+          <a class="btn" href="{% url 'business' %}">
+            <img src="{% static 'img/handshake_Green.png' %}" class="faa-bounce animated-hover">
+          </a>
+          <h2>Business</h2>
+          <p> Access information about doing business with TikbiT; contracting to business partners.</p>
+          <p><a class="btn btn-default" href="{% url 'business' %}" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+    </div>
+
+
+     
+
+
+    
+

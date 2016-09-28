@@ -1,0 +1,34 @@
+{% extends "bases/mothership_base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+<!-- home page html -->
+
+{% block head_title %}{{ block.super }}{% endblock %}
+
+<style>
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+
+.jumbotron {
+	background-color:#41B3D5;
+	color: #FFF;
+}
+
+
+{% endblock %}
+</style>
+
+{% block carousel %}
+{% include "blocks/carousel.html" %}
+{% endblock %}
+    
+{% block marketing %}
+{% include "blocks/marketing.html" %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends "bases/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+p {
+    font-size: 125%;
+}
+
+{% endblock %}
+{% block marketing %}
+<div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- chart -->
+          <div id="container" style=" width:100%; height:400px;">
+          
+          <div class="embed-responsive embed-responsive-16by9">
+          <span class=" embed-responsive-item fa-stack fa-lg fa-4x">
+                <i style='color:#54C5E6;' class="fa fa-flask fa-stack-2x"></i>
+                  <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+            </span>
+          </div>
+
+            
+          <h1>TikbiT Lab </h1>
+          <p> Here you'll find various information on TikbiT projects as well as tests being ran. </p>
+          </div>
+        
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+        <!-- chart -->
+          <div id="containerTwo" style="width:100%; height:400px;"></div>
+                     
+        
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          
+          <div id="containerThree" style="width:100%; height:400px;"></div>
+
+          
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+{% block script %}
+{% include "js/pies/pieLab.js" %}
+{% endblock %}
+
+
+{% endblock %}
+

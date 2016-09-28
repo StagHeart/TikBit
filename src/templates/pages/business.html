@@ -1,0 +1,77 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %}{{ block.super }}{% endblock %}
+
+<style>
+{% block style %}
+.navbar-static-top {
+    margin-bottom: 0px !important;
+}
+
+.jumbotron {
+    background-color:#41B3D5;
+    color: #FFF;
+}
+
+{% endblock %}
+</style>
+
+{% block carousel %}
+
+{% endblock %}
+
+    
+{%  block marketing %}
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class="row">
+    <div  class="col-md-2 col-md-offset-5">
+    	<img class="center-block"src="{% static 'img/handshake_Green.png' %}">
+    </div>
+</div>
+          
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1 style="text-align: center; color: white;">Lets Do Business!</h1>
+
+</div>
+
+</div>
+<hr style="width: 100%; color: black; height: 1px; background-color:grey;">
+{% include "blocks/marketing_business.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if title %}
+<hr style="width: 100%; color: black; height: 3px; background-color:black;">
+<h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
+<hr style="width: 100%; color: black; height: 1px; background-color:grey;">
+{% endif %}
+
+<form class="center-block"style="width:70%;" method='POST' action=''>{% csrf_token %}
+{{ form|crispy }}
+
+<input class=' center-block btn btn-primary' style="background-color: #3EA096; border-color: #000000; font-size: 200%;" type='submit' value='Submit' />
+<br>
+<br>
+<!-- Element to pop up -->
+            <div id="element_to_pop_up">
+                
+
+                <div id="containerSignUp" style="width:280px; height:130px;">
+                	
+                </div>
+            </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% include "js/popUps/popupContact.js" %}
+{% include "js/popup.js" %}
+{% endblock %}
+

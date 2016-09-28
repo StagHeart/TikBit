@@ -1,0 +1,110 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+<!-- for running test -->
+
+
+{% block head_title %}TikbiT | Ranger{{ block.super }}{% endblock %}
+
+
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+
+.jumbotron {
+	background-color:#768083;
+	color: #FFF;
+}
+p {
+    font-size: 125%;
+}
+
+{% endblock %}
+
+{% block upperjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+{%  endblock %}
+
+     
+{% block jumbotron %}
+
+
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class="jumbotron">
+ <div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+		<h1>Ranger</h1>
+		<p>What journey lies ahead?</p>
+		<p>
+		<a style="background-color: #3EA096; border-color: #000000;" class="btn btn-lg btn-primary" href="#location" role="button">Sign Up! &raquo;</a>
+		</p>
+		</div>
+		<div class='col-sm-6' >
+			<span class='fa-stack faa-float animated fa-md faa-slow fa-5x'>
+		<img src="{% static 'img/Archer_small.png' %}">
+	</span>
+
+ 		</div>
+		</div>
+	</div>
+ </div>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+<div class="row">
+	<span class="span9">
+	  <a name="location"></a>
+	  <div class="col-md-3 center">
+	  			
+				<p class='lead text-align-center'>{{ title }}</p>
+
+				<form method='POST' action=''>{% csrf_token %}
+	            {{ form|crispy }}
+
+	            <input name ="location" style="background-color: #3EA096; border-color: #000000;" class='btn btn-primary' type='submit' value='Sign Up' />
+
+	            </form> 
+	            
+	            <!-- Element to pop up -->
+	            <div id="element_to_pop_up">Content of popup>
+
+
+	                <div id="containerSignUp" style="width:30%; height:50%;"></div>
+	            </div>
+	            
+	            <br>
+	            <br>
+		</div>
+    </span>
+</div>
+<div>
+	<div>
+	          <h2>Ranger</h2>
+	          <p>This game will take you through an Archer Adventurer, traveling vast land to complete story objectives. Survival and cunningness will be key to achieve this goal.</p>
+	          
+	          
+	</div><!-- /.col-lg-4 -->
+	
+</div>
+
+	
+
+
+
+
+
+
+{% endblock %}
+
+{% block script %}
+{% include "js/pies/pieRanger.js" %}
+{% include "js/popup.js" %}
+{% endblock %}

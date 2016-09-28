@@ -1,0 +1,74 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block head_title %}TikbiT | About{{ block.super }}{% endblock %}
+
+
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+
+.jumbotron {
+	background-color:#768083;
+	color: #FFF;
+}
+p {
+    font-size: 125%;
+}
+
+{% endblock %}
+
+{% block upperjs %}
+
+{%  endblock %}
+
+     
+{% block jumbotron %}
+
+
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class="jumbotron">
+ <div  class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+
+		<h1 style="text-align: center;">What is TikbiT?</h1>
+		<p>TikbiT provides highly personalized service for all your Tech Development needs, from creating your website or app to maintaining it. TikibiT also creates inhouse projects, go check out our apps and games page.</p>
+		<p>
+		
+		</p>
+		</div>
+		<div class='col-sm-6' >
+			
+		<img class="img-responsive center-block" src="{% static 'img/Green_Grass_XLogo.png' %}" alt="Generic placeholder image">
+	
+
+ 		</div>
+		</div>
+	</div>
+ </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row center-block">
+  <a name="location"></a>
+  
+	<div class="center-block" >
+	
+          <img class="img-responsive center-block" src="{% static 'img/HeadShot_Xsmall.png' %}" alt="Generic placeholder image">
+          
+          
+          <h2 style="text-align: center;" >Wesley Gue</h2>
+          <h3 style="text-align: center;">Creator of TikbiT</h3>
+          <p  >Wesley is a professionally employeed software developer with experiance in creating web based business network applications. He founded TikbiT to create a platform to launch exciting projects and created his own business to welcome new customers to our developmental services.</p>
+                
+        </div><!-- /.col-lg-4 -->
+
+	</div>
+
+{% endblock %}

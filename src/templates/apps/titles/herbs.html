@@ -1,0 +1,94 @@
+{% extends "bases/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %}TikbiT | Herbs{{ block.super }}{% endblock %}
+
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+
+.jumbotron {
+	background-color:#768083;
+	color: #FFF;
+}
+p {
+    font-size: 125%;
+}
+
+{% endblock %}
+
+{% block upperjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+{%  endblock %}
+   
+{% block jumbotron %}
+
+<div  style="background: url('{% static "img/GTEX_GREEN.png" %}') no-repeat center center;" class="jumbotron">
+ <div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+		<h1>Herbs</h1>
+		<p>The "go to" app for anything plants</p>
+		<p>
+		<a style="background-color: #3EA096; border-color: #000000;" class="btn btn-lg btn-primary" href="#location" role="button">Sign Up! &raquo;</a>
+		</p>
+		</div>
+		<div class='col-sm-6' >
+			<span class="fa-4x">
+              <i style='color:#54E654;' class="fa fa-leaf fa-4x "></i>
+            </span>
+
+ 		</div>
+		</div>
+	</div>
+ </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<span class="span9">
+	  <a name="location"></a>
+	  <div class="col-md-3 center">
+	  			
+				<p class='lead text-align-center'>{{ title }}</p>
+
+				<form method='POST' action=''>{% csrf_token %}
+	            {{ form|crispy }}
+
+	            <input name ="location" style="background-color: #3EA096; border-color: #000000;" class=' center-block btn btn-primary' type='submit' value='Sign Up' />
+
+	            </form> 
+	            
+	            <!-- Element to pop up -->
+	            <div id="element_to_pop_up">
+
+	                <div id="containerSignUp" style="width:380px; height:346px;"></div>
+	            </div>
+	            
+	            <br>
+	            <br>
+		</div>
+    </span>
+</div>
+<div>
+	<div>
+	          <h2>Herbs Project</h2>
+	          <p>This app is a massive undertaking. It will host a large database of medicnal, edible herbs and plants. You will be able to look up plants based on region, season, usage, remedies, color, type, and much more. A user might have an issue that needs attention, like a sore throat, this app will highlight which plants are in season, in targeted geographical region. Illustrating plants that have medicinal properties that potentially may alliviate the issue.</p>
+	          <br>
+	          <p>The beauty of this app is the dynamic features. Users can utilize submission feature for plants that aren't in the database or they feel their pictures and descriptions might be better then what's offered. The submissions can be seen by all and upvoted or down voted by other users and have the most popular submission brought to the top. 
+	          This app will have a deep rooted core in wild plants but it will be so much more then that .There will be videos, tutorials in tinctures, canning, farming, and anything plants. This app will be the one stop shop for any information plants.  You will be able to make list, favorites, blog, comment, profiles, users with the most #1 submissions will have ranks showing there knowlege and contributing status to the community. I am really eager to get a great plants app out there that does justice to the world's large and diverse world of plants.</p>
+	          
+	</div><!-- /.col-lg-4 -->
+	
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "js/pies/pieHerbs.js" %}
+{% include "js/popup.js" %}
+{% endblock %}
